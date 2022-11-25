@@ -21,7 +21,8 @@ async function commentFormHandler(event) {
 
         if (response.ok) {
             document.location.reload();
-        } else {
+        } 
+        else {
             alert(response.statusText);
         }
     }

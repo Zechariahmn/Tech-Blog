@@ -4,17 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tech Blog</title>
+    <title>Tech Spot</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/public/stylesheets/login.css">
 </head>
 
 <body>
+
     <div class="wrapper">
+
         <header>
+
+<!--home buttton-->
             <h1>
                 <a href="/">home</a>
             </h1>
+
+<!--dashboard, login and logout buttons-->
             <nav>
                 {{#if loggedIn}}
                 <a href="/dashboard">dashboard</a>
@@ -23,20 +29,27 @@
                 <a href="/login">login</a>
                 {{/if}}
             </nav>
+
         </header>
+
         <div class="site-row">
+
             <div class="site-name">
-                <h1>The Tech Blog</h1>
+                <h1>Tech Spot</h1>
             </div>
+
         </div>
+
         <main>
             {{{ body }}}
         </main>
+
     </div>
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
+
 </body>
 
 </html>

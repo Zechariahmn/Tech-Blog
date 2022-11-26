@@ -2,6 +2,7 @@ const {
     Model,
     DataTypes
 } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
 
@@ -14,6 +15,7 @@ Comment.init({
         primaryKey: true,
         autoIncrement: true
     },
+    
     comment_text: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -21,6 +23,7 @@ Comment.init({
             len: [1]
         }
     },
+    
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -29,6 +32,7 @@ Comment.init({
             key: 'id'
         }
     },
+    
     post_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -37,7 +41,8 @@ Comment.init({
             key: 'id'
         }
     }
-}, {
+},
+{
     sequelize,
     freezeTableName: true,
     underscored: true,

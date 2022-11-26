@@ -2,6 +2,7 @@ const {
     Model,
     DataTypes
 } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
 
@@ -14,6 +15,7 @@ Post.init({
         primaryKey: true,
         autoIncrement: true
     },
+    
     title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -21,6 +23,7 @@ Post.init({
             len: [1]
         }
     },
+   
     content: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,6 +31,7 @@ Post.init({
             len: [1]
         }
     },
+    
     user_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -35,7 +39,8 @@ Post.init({
             key: 'id'
         }
     }
-}, {
+},
+{
     sequelize,
     freezeTableName: true,
     underscored: true,

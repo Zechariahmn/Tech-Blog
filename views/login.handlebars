@@ -1,28 +1,24 @@
- <div class="login-card">
-      <h2>Login</h2>
-      <h3>Enter your credentials</h3>
-      <form class="login-form">
-        <input
-          spellcheck="false"
-          class="control"
-          type="text"
-          placeholder="Username"
-        />
-        <div class="password">
-          <input
-            spellcheck="false"
-            class="control"
-            id="password"
-            type="password"
-            placeholder="Password"
-          />
-          <button
-            class="toggle"
-            type="button"
-            onclick="togglePassword(this)"
-          ></button>
-        </div>
-        <button class="control" type="button">LOGIN</button>
-      </form>
+ <section class="login-page">
+    <div class="form-heading">
+        <h1>Log In</h1>
     </div>
-    <script type="text/javascript" src="main.js"></script>
+    <div class="form-section">
+        <form class="login-form">
+            <div>
+                <label for="username-login">Username</label>
+                <input type="text" class="entry-field" id="username-login" />
+            </div>
+            <div>
+                <label for="password-login">Password</label>
+                <input type="password" class="entry-field" id="password-login" />
+            </div>
+            <div>
+                <button type="submit" class="login-signup-btn">Log In!</button>
+            </div>
+        </form>
+    </div>
+
+    <a href="/signup" class="sign-in-link">sign up instead</a>
+</section>
+
+<script src="/javascript/login.js"></script>

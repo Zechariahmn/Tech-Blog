@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const {
     User,
     Post,
@@ -12,7 +13,9 @@ router.get('/', (req, res) => {
                 exclude: ['password']
             }
         })
+        
         .then(dbUserData => res.json(dbUserData))
+        
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -25,9 +28,11 @@ router.get('/:id', (req, res) => {
             attributes: {
                 exclude: ['password']
             },
+           
             where: {
                 id: req.params.id
             },
+           
             include: [{
                     model: Post,
                     attributes: ['id', 'title', 'content', 'created_at']
@@ -42,6 +47,7 @@ router.get('/:id', (req, res) => {
                 }
             ]
         })
+       
         .then(dbUserData => {
             if (!dbUserData) {
                 res.status(404).json({
@@ -49,8 +55,10 @@ router.get('/:id', (req, res) => {
                 });
                 return;
             }
+           
             res.json(dbUserData);
         })
+        
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -63,6 +71,7 @@ router.post('/', (req, res) => {
             username: req.body.username,
             password: req.body.password
         })
+       
         .then(dbUserData => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
@@ -72,6 +81,7 @@ router.post('/', (req, res) => {
                 res.json(dbUserData);
             });
         })
+        
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -84,6 +94,7 @@ router.post('/login', (req, res) => {
                 username: req.body.username
             }
         })
+        
         .then(dbUserData => {
             if (!dbUserData) {
                 res.status(400).json({
@@ -130,7 +141,8 @@ router.post('/logout', (req, res) => {
         req.session.destroy(() => {
             res.status(204).end();
         });
-    } else {
+    } 
+    else {
         res.status(404).end();
     }
 

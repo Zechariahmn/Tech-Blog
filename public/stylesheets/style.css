@@ -24,7 +24,7 @@ a,
 
 a:hover,
 .btn-no-style:hover {
-  color: #e2edd5;
+  color: #1129d7;
 }
 
 a {
@@ -45,7 +45,7 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: #4de90c;
 }
 
 .post-list {
@@ -78,6 +78,7 @@ textarea {
 
 form>div {
   margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 form label {
@@ -106,8 +107,6 @@ header,
   background-color: #232d2e;
 }
 
-.login-page,
-.sign-in-page,
 .new-form-page,
 .edit-form-page {
   border: 3px solid black;
@@ -120,9 +119,7 @@ header,
 
 .info-section,
 .content-section,
-.form-section,
-.sign-in-link,
-.login-link {
+.form-section {
   padding-left: 10px;
 }
 
@@ -249,19 +246,19 @@ main {
 
 .form-heading h1,
 .form-heading h2 {
-  color: #b8cba2;
+  color: #13e106;
+  display: flex;
+  justify-content: center;
 }
 
-.login-form,
-.signup-form,
 .post-content,
 .post-title-section {
   padding: 10px 10px 0px 0px;
 }
 
 .entry-field,
-.login-signup-btn,
 .btn,
 #post-title {
   width: 100%;
 }
+

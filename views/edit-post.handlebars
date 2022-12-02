@@ -15,23 +15,28 @@
 
             <form class="edit-post-form">
 
+<!---allows user to edit title--->
                 <div class="post-title-section">
                     <label for="post-title">Title</label>
                     <input type="text" name="post-title" id="post-title" value="{{post.title}}" />
                 </div>
 
+<!---allows users to edit the post content--->
                 <div class="post-content">
                     <label for="post-content">Content</label>
                     <textarea class="entry-field" id="post-content" name="post-content">{{post.content}}</textarea>
                 </div>
 
+<!---gives the user the choice to either post the updated post or delete th e post--->
                 <button type="submit">Update post</button>
                 <button type="button" class="delete-post-btn">Delete post</button>
 
             </form>
 
         </div>
+
     </section>
+
 </article>
 
 {{#if loggedIn}}

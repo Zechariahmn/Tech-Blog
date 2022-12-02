@@ -1,17 +1,26 @@
 <article class="post">
+
     <div class="whole-post">
+
         <div class="info-section">
+
+<!---displays the title of the post created--->
             <div class="post-name">
                 <a href="/post/{{id}}" class="links">{{title}}</a>
             </div>
+
+<!---displays the users name and the date that the post was created--->
             <div class="created-by">
                 <p id="comment-subtitle">
                     Posted by <b>{{user.username}} </b> on <b>{{formatDate created_at}}</b>
                 </p>
             </div>
+
         </div>
+<!---displays the content that the user input to be posted--->
         <div class="content-section">
             <p>{{content}}</p>
         </div>
+
     </div>
 </article>

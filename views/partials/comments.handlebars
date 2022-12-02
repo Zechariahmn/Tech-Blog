@@ -1,12 +1,19 @@
 <div class="comments">
     {{#each this}}
+
     <section class="comment">
+
+<!---displays the users name and date the post was created--->
         <div class="meta">
             {{user.username}} on {{created_at}}
         </div>
+
+<!---displays the text the user entered--->
         <div class="text">
             {{comment_text}}
         </div>
+
     </section>
     {{/each}}
+
 </div>

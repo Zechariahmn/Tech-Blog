@@ -11,6 +11,7 @@ async function loginFormHandler(event) {
               username,
               password
           }),
+          
           headers: {
               'Content-Type': 'application/json'
           }

@@ -4,6 +4,9 @@
 
   ## Description
   An application that allows different users to share their technological views.
+  
+  ## Built With
+  Sequelize Shield Express Shield Handlebars Shield mySQL Shield Insomnia Shield JavaScript Shield Node.js Shield CSS Shield
 
 ## Table Of Contents
 <li><a href="#installation">Installation</a></li>

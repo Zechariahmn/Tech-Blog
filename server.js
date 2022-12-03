@@ -1,16 +1,12 @@
-// Global Modules
 const path = require('path');
-
-// Third Party Modules
 const express = require('express');
-const session = require('express-session');
+const routes = require('./controllers');
+const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Local Modules
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-const sequelize = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -24,8 +24,10 @@ const sess = {
 };
 
 //port being used for application
+const PORT = process.env.PORT || 3001
 const app = express();
-const PORT = process.env.PORT || 3001;
+
+app.set("port", PORT);
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

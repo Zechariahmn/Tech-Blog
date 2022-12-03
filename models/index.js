@@ -15,15 +15,15 @@ post.belongsTo(user, {
     foreignKey: 'user_id'
 })
 
-post.hasMany(Comment, {
+post.hasMany(comment, {
     foreignKey: 'post_id'
 })
 
-Comment.belongsTo(user, {
+comment.belongsTo(user, {
     foreignKey: 'user_id'
 })
 
-Comment.belongsTo(post, {
+comment.belongsTo(post, {
     foreignKey: 'post_id'
 })
 

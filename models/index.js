@@ -31,5 +31,5 @@ comment.belongsTo(post, {
 module.exports = {
     user,
     post,
-    Comment
+    comment
 };

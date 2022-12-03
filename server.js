@@ -1,48 +1,48 @@
+// Global Modules
 const path = require('path');
-const express = require('express');
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-const helpers = require('./utils/helpers');
-const exphbs = require('express-handlebars');
-const dotenv = require('dotenv');
-const hbs = exphbs.create({
-    helpers
-});
 
+// Third Party Modules
+const express = require('express');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// Local Modules
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+const sequelize = require('./config/config');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+const hbs = exphbs.create({ helpers });
+
 const sess = {
-    secret: process.env.DB_SECRET,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize,
-        expiration: 1000 * 60 * 10, 
-    })
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 60 * 60 * 1000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
-//port being used for application
-const PORT = process.env.PORT || 3001;
-const app = express();
+app.use(session(sess));
 
-app.set("port", PORT);
-
+// Sets handlebars as html to be served
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-//middleware
-app.use(session(sess));
-app.use(express.static(path.join(__dirname, 'public')));
+// Defines all folders to be served
 app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
-
-sequelize.sync();
 
 //listening to port
 app.listen(PORT, () =>

@@ -9,7 +9,6 @@ const hbs = exphbs.create({
     helpers
 });
 
-
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -20,26 +19,30 @@ const sess = {
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize,
-        checkExpirationInterval: 1000 * 60 * 10, // will check every 10 minutes
-        expiration: 1000 * 60 * 30 // will expire after 30 minutes
+        expiration: 1000 * 60 * 10, 
     })
-  };
-  
-const app = express();
-const PORT = process.env.PORT || 3001;
+};
 
-  app.use(session(sess));
-  
-  // Sets handlebars as html to be served
-  app.engine('handlebars', hbs.engine);
-  app.set('view engine', 'handlebars');
-  
-  // Defines all folders to be served
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.static(path.join(__dirname, 'public')));
-  
-  app.use(routes);
+//port being used for application
+const PORT = process.env.PORT || 3001;
+const app = express();
+
+app.set("port", PORT);
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+//middleware
+app.use(session(sess));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+
+app.use(routes);
+
+sequelize.sync();
 
 //listening to port
 app.listen(PORT, () =>
